@@ -1,65 +1,248 @@
-import Image from "next/image";
-
 export default function Home() {
+  const properties = [
+    {
+      title: "Luxury Villa in Colombo",
+      location: "Colombo 07",
+      price: "$450,000",
+    },
+    {
+      title: "Modern Apartment",
+      location: "Negombo",
+      price: "$180,000",
+    },
+    {
+      title: "Beachfront Property",
+      location: "Bentota",
+      price: "$620,000",
+    },
+    {
+      title: "Family House",
+      location: "Kandy",
+      price: "$240,000",
+    },
+    {
+      title: "Luxury Penthouse",
+      location: "Colombo City",
+      price: "$890,000",
+    },
+    {
+      title: "Garden Villa",
+      location: "Galle",
+      price: "$390,000",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="page">
+
+      {/* moving property banner */}
+      <div className="top-banner">
+<div className="ticker-text">          🏡 HOT PROPERTY DEALS •
+          LIMITED TIME MORTGAGE OFFERS •
+          PREMIUM VILLAS AVAILABLE •
+          BOOK PROPERTY TOUR TODAY •
+        </div>
+      </div>
+
+      {/* intrusive popup */}
+      <div className="visit-popup">
+        <h2>🏡 Schedule a Visit</h2>
+
+        <p>
+          Only 2 premium properties
+          left this week.
+        </p>
+
+        <button>
+          BOOK VISIT
+        </button>
+      </div>
+
+      {/* hero */}
+      <section className="hero">
+
+        <video
+          autoPlay
+          muted
+          loop
+          className="hero-video"
+        >
+          <source
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        <div className="hero-overlay" />
+
+        <div className="hero-content">
+
+          <h1>
+            Find Your Dream Home
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p>
+            Explore luxury homes,
+            villas and premium
+            apartments.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+          {/* search card */}
+          <div className="search-card">
+
+            <input
+              placeholder="Location"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <input
+              placeholder="Budget"
+            />
+
+            <select>
+              <option>
+                Property Type
+              </option>
+
+              <option>
+                Apartment
+              </option>
+
+              <option>
+                Villa
+              </option>
+
+              <option>
+                House
+              </option>
+            </select>
+
+            <button>
+              Search
+            </button>
+
+          </div>
+
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* blinking featured alert */}
+      <section className="featured-alert blink">
+        🔥 HOT PROPERTY ALERT —
+        LUXURY VILLAS SELLING FAST
+      </section>
+
+      {/* property grid */}
+      <section className="property-section">
+
+        <h2>
+          Featured Properties
+        </h2>
+
+        <div className="property-grid">
+
+          {properties.map(
+            (property, index) => (
+              <div
+                key={index}
+                className="property-card pulse"
+              >
+
+                <span className="hot-badge">
+                  HOT
+                </span>
+
+                <div className="property-image">
+                  Property Image
+                </div>
+
+                <h3>
+                  {property.title}
+                </h3>
+
+                <p>
+                  📍
+                  {" "}
+                  {property.location}
+                </p>
+
+                <h4>
+                  {property.price}
+                </h4>
+
+                <button>
+                  View Details
+                </button>
+
+              </div>
+            )
+          )}
+
+        </div>
+
+      </section>
+
+      {/* featured properties */}
+      <section className="luxury-section">
+
+        <h2>
+          Premium Estates
+        </h2>
+
+        <div className="luxury-grid">
+
+          <div className="luxury-card pulse">
+            Luxury Beach Villa
+          </div>
+
+          <div className="luxury-card">
+            Smart City Apartment
+          </div>
+
+          <div className="luxury-card pulse">
+            Modern Penthouse
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* agents */}
+      <section className="agents">
+
+        <h2>
+          Meet Our Agents
+        </h2>
+
+        <div className="agent-grid">
+
+          <div className="agent-card">
+            <div className="avatar" />
+            <h3>Michael Perera</h3>
+            <p>Luxury Property Expert</p>
+          </div>
+
+          <div className="agent-card pulse">
+            <div className="avatar" />
+            <h3>Sarah Fernando</h3>
+            <p>Villa Specialist</p>
+          </div>
+
+          <div className="agent-card">
+            <div className="avatar" />
+            <h3>David Silva</h3>
+            <p>Mortgage Advisor</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* footer */}
+      <footer className="footer">
+        © 2026 DreamSpace Realty —
+        Premium Property Solutions
+      </footer>
+
+    </main>
   );
 }
