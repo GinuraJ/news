@@ -34,215 +34,277 @@ export default function Home() {
 
   return (
     <main className="page">
-
-      {/* moving property banner */}
-      <div className="top-banner">
-<div className="ticker-text">          🏡 HOT PROPERTY DEALS •
-          LIMITED TIME MORTGAGE OFFERS •
-          PREMIUM VILLAS AVAILABLE •
-          BOOK PROPERTY TOUR TODAY •
-        </div>
-      </div>
-
-      {/* intrusive popup */}
-      <div className="visit-popup">
-        <h2>🏡 Schedule a Visit</h2>
-
-        <p>
-          Only 2 premium properties
-          left this week.
+      {/* Top banner */}
+      <section className="top-banner">
+        <p className="readable-text">
+          Explore premium homes, villas, and apartments
+          with flexible property visits and selected
+          financing opportunities.
         </p>
+      </section>
 
-        <button>
-          BOOK VISIT
-        </button>
-      </div>
+      {/* Visit card */}
+      <section className="visit-section">
+        <div
+          className="visit-card"
+          aria-labelledby="visit-heading"
+        >
+          <h2 id="visit-heading">
+            Schedule a Property Visit
+          </h2>
 
-      {/* hero */}
+          <p className="readable-text">
+            Explore available homes and arrange a
+            convenient property visit with our team.
+          </p>
+
+          <button
+            type="button"
+            className="primary-btn"
+          >
+            Schedule Visit
+          </button>
+        </div>
+      </section>
+
+      {/* Hero */}
       <section className="hero">
-
         <video
-          autoPlay
+          controls
           muted
-          loop
+          preload="metadata"
           className="hero-video"
+          aria-label="Property showcase video"
         >
           <source
             src="https://www.w3schools.com/html/mov_bbb.mp4"
             type="video/mp4"
           />
+          Your browser does not support the video tag.
         </video>
 
-        <div className="hero-overlay" />
-
         <div className="hero-content">
-
           <h1>
             Find Your Dream Home
           </h1>
 
-          <p>
-            Explore luxury homes,
-            villas and premium
-            apartments.
+          <p className="readable-text">
+            Explore luxury homes, villas,
+            and carefully selected apartments
+            designed for different lifestyles
+            and budgets.
           </p>
 
-          {/* search card */}
-          <div className="search-card">
+          {/* Search card */}
+          <form
+            className="search-card"
+            aria-label="Property search form"
+          >
+            <div className="field">
+              <label htmlFor="location">
+                Location
+              </label>
 
-            <input
-              placeholder="Location"
-            />
+              <input
+                id="location"
+                type="text"
+                placeholder="Enter location"
+              />
+            </div>
 
-            <input
-              placeholder="Budget"
-            />
+            <div className="field">
+              <label htmlFor="budget">
+                Budget
+              </label>
 
-            <select>
-              <option>
+              <input
+                id="budget"
+                type="text"
+                placeholder="Enter budget"
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="property-type">
                 Property Type
-              </option>
+              </label>
 
-              <option>
-                Apartment
-              </option>
+              <select id="property-type">
+                <option>
+                  Select property type
+                </option>
 
-              <option>
-                Villa
-              </option>
+                <option>
+                  Apartment
+                </option>
 
-              <option>
-                House
-              </option>
-            </select>
+                <option>
+                  Villa
+                </option>
 
-            <button>
-              Search
+                <option>
+                  House
+                </option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              className="primary-btn"
+            >
+              Search Properties
             </button>
-
-          </div>
-
+          </form>
         </div>
       </section>
 
-      {/* blinking featured alert */}
-      <section className="featured-alert blink">
-        🔥 HOT PROPERTY ALERT —
-        LUXURY VILLAS SELLING FAST
+      {/* Featured section */}
+      <section className="featured-alert">
+        <p className="readable-text">
+          Explore recently listed premium homes
+          and luxury villas in selected locations.
+        </p>
       </section>
 
-      {/* property grid */}
-      <section className="property-section">
-
-        <h2>
+      {/* Property section */}
+      <section
+        className="property-section"
+        aria-labelledby="property-heading"
+      >
+        <h2 id="property-heading">
           Featured Properties
         </h2>
 
         <div className="property-grid">
-
           {properties.map(
             (property, index) => (
-              <div
+              <article
                 key={index}
-                className="property-card pulse"
+                className="property-card"
               >
-
-                <span className="hot-badge">
-                  HOT
+                <span className="featured-badge">
+                  Featured
                 </span>
 
-                <div className="property-image">
-                  Property Image
+                <div
+                  className="property-image"
+                  aria-hidden="true"
+                >
+                  Property Preview
                 </div>
 
-                <h3>
-                  {property.title}
-                </h3>
+                <div className="property-content">
+                  <h3>
+                    {property.title}
+                  </h3>
 
-                <p>
-                  📍
-                  {" "}
-                  {property.location}
-                </p>
+                  <p className="readable-text">
+                    📍 {property.location}
+                  </p>
 
-                <h4>
-                  {property.price}
-                </h4>
+                  <h4>
+                    {property.price}
+                  </h4>
 
-                <button>
-                  View Details
-                </button>
-
-              </div>
+                  <button
+                    type="button"
+                    className="primary-btn"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </article>
             )
           )}
-
         </div>
-
       </section>
 
-      {/* featured properties */}
-      <section className="luxury-section">
-
-        <h2>
+      {/* Premium estates */}
+      <section
+        className="luxury-section"
+        aria-labelledby="luxury-heading"
+      >
+        <h2 id="luxury-heading">
           Premium Estates
         </h2>
 
         <div className="luxury-grid">
-
-          <div className="luxury-card pulse">
+          <article className="luxury-card">
             Luxury Beach Villa
-          </div>
+          </article>
 
-          <div className="luxury-card">
+          <article className="luxury-card">
             Smart City Apartment
-          </div>
+          </article>
 
-          <div className="luxury-card pulse">
+          <article className="luxury-card">
             Modern Penthouse
-          </div>
-
+          </article>
         </div>
-
       </section>
 
-      {/* agents */}
-      <section className="agents">
-
-        <h2>
+      {/* Agents */}
+      <section
+        className="agents"
+        aria-labelledby="agents-heading"
+      >
+        <h2 id="agents-heading">
           Meet Our Agents
         </h2>
 
         <div className="agent-grid">
+          <article className="agent-card">
+            <div
+              className="avatar"
+              aria-hidden="true"
+            />
 
-          <div className="agent-card">
-            <div className="avatar" />
-            <h3>Michael Perera</h3>
-            <p>Luxury Property Expert</p>
-          </div>
+            <h3>
+              Michael Perera
+            </h3>
 
-          <div className="agent-card pulse">
-            <div className="avatar" />
-            <h3>Sarah Fernando</h3>
-            <p>Villa Specialist</p>
-          </div>
+            <p className="readable-text">
+              Luxury Property Expert
+            </p>
+          </article>
 
-          <div className="agent-card">
-            <div className="avatar" />
-            <h3>David Silva</h3>
-            <p>Mortgage Advisor</p>
-          </div>
+          <article className="agent-card">
+            <div
+              className="avatar"
+              aria-hidden="true"
+            />
 
+            <h3>
+              Sarah Fernando
+            </h3>
+
+            <p className="readable-text">
+              Villa Specialist
+            </p>
+          </article>
+
+          <article className="agent-card">
+            <div
+              className="avatar"
+              aria-hidden="true"
+            />
+
+            <h3>
+              David Silva
+            </h3>
+
+            <p className="readable-text">
+              Mortgage Advisor
+            </p>
+          </article>
         </div>
-
       </section>
 
-      {/* footer */}
+      {/* Footer */}
       <footer className="footer">
-        © 2026 DreamSpace Realty —
-        Premium Property Solutions
+        DreamSpace Realty © 2026 —
+        Premium property solutions
       </footer>
-
     </main>
   );
 }
